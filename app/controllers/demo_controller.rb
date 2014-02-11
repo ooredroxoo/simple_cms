@@ -7,7 +7,7 @@ class DemoController < ApplicationController
   end #end of Demo#index
 
   def hello
-  	
+  	render('demo/index')
   end #end of Demo#hello
 
 end
