@@ -5,16 +5,48 @@
 <%= 1+1 %>
 
 <p>-------------------</p>
+<p>Rendering a variable</p>
 <% target = "world" %>
 <%= "Hello #{target}" %>
 <p>-------------------</p>
+<p>Looping in a times loop!</p>
 <% 3.times do %>
 	<br>
 	<%= "xxx" %>
 <% end %>
 <p>-------------------</p>
+<p>Looping in an array!</p>
 <% if(@array) 
 	    @array.each do |n|%>
  <%= n %><br>
 <% end
   end  %>
+<p>-------------------</p>
+<p><%= link_to('Ir para index', {:controller => 'demo', :action => 'index'},:class => 'um_link', :id => 'nothing')%></p>
+
+<p>-------------------</p>
+<p>Você está na página <strong><%= @page %></strong>, seja bem vindo <strong><%= @name %></strong></p>
+
+<p>
+<%= link_to('Ir para página anterior', 
+								{
+									:controller => 'demo', 
+									:action => 'hello',
+									:page => @page.to_i - 1,
+									:name => @name
+								},
+								:class => 'um_link', 
+								:id => 'nothing'
+							) %>
+<%= link_to('Ir para próxima página', 
+								{
+									:controller => 'demo', 
+									:action => 'hello',
+									:page => @page.to_i + 1,
+									:name => @name
+								},
+								:class => 'um_link', 
+								:id => 'nothing'
+							) %></p>
+
+<p><%= params.inspect %> </p>
