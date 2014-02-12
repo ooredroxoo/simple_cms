@@ -11,7 +11,7 @@ class CreateSections < ActiveRecord::Migration
       t.timestamps
     end
 
-    execute "ALTER TABLE sections ADD CONSTRAINT fk_section_pages FOREIGN KEY (page_id) REFERENCES pages(id)"
+    #execute "ALTER TABLE sections ADD CONSTRAINT fk_section_pages FOREIGN KEY (page_id) REFERENCES pages(id)"
   end
 
   def down

@@ -1,0 +1,15 @@
+<h1>Modelos</h1>
+<% if @modelos %>
+	<% @modelos.each do |m| %>
+		<p>A modelo <strong><%= m.name %></strong> é do país <strong><%= m.country %></strong></p>
+	<% end %>
+<% end %>
+
+<h1>Cadastre suas modelos.</h1>
+<%= form_tag('/modelos_manager/register_models') do -%>
+	<label for="nome">Nome:</label><br>
+	<%= text_field_tag 'name'%><br>
+	<label>País</label><br>
+	<%= text_field_tag 'country'%><br>
+  <div><%= submit_tag 'Save' %></div>
+<% end -%>

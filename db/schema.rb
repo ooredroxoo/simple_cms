@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140212041617) do
+ActiveRecord::Schema.define(version: 20140212044720) do
 
   create_table "admin_users", force: true do |t|
     t.string   "first_name",    limit: 25
@@ -25,11 +25,18 @@ ActiveRecord::Schema.define(version: 20140212041617) do
 
   add_index "admin_users", ["username"], name: "index_admin_users_on_username", using: :btree
 
+  create_table "modelos", force: true do |t|
+    t.string   "name"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pages", force: true do |t|
     t.string   "name"
     t.integer  "permalink"
     t.integer  "position"
-    t.boolean  "visible"
+    t.boolean  "visible",    default: true
     t.integer  "subject_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -40,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140212041617) do
   create_table "sections", force: true do |t|
     t.string   "name"
     t.integer  "position"
-    t.boolean  "visible"
+    t.boolean  "visible",      default: true
     t.string   "content_type"
     t.text     "content"
     t.integer  "page_id"
@@ -53,7 +60,7 @@ ActiveRecord::Schema.define(version: 20140212041617) do
   create_table "subjects", force: true do |t|
     t.string   "name"
     t.integer  "position"
-    t.boolean  "visible"
+    t.boolean  "visible",    default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
