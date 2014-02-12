@@ -11,6 +11,7 @@ class AlterUsers < ActiveRecord::Migration
   end
 
   def down
+  	puts "*** Removing an index from username ***"
   	remove_index("admin_users", "username")
   	rename_column("admin_users","hash_password", "password")
   	change_column("admin_users", "email", :string ,:default => "", :null =>false)
