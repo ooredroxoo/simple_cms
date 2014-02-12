@@ -3,7 +3,7 @@ class CreateSections < ActiveRecord::Migration
     create_table :sections do |t|
       t.string :name, index:true
       t.integer :position
-      t.boolean :visible
+      t.boolean :visible, :default => true
       t.string :content_type
       t.text :content
       t.references :page, index: true

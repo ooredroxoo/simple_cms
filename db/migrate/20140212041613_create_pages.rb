@@ -4,12 +4,12 @@ class CreatePages < ActiveRecord::Migration
       t.string :name, index: true
       t.integer :permalink, index: true
       t.integer :position
-      t.boolean :visible
+      t.boolean :visible, :default => true
       t.references :subject, index: true
 
       t.timestamps
     end
-    execute "ALTER TABLE pages ADD CONSTRAINT fk_pages_subjects FOREIGN KEY (subject_id) REFERENCES subjects(id)"
+    #execute "ALTER TABLE pages ADD CONSTRAINT fk_pages_subjects FOREIGN KEY (subject_id) REFERENCES subjects(id)"
   end
 
   def down
