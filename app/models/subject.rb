@@ -1,5 +1,8 @@
 class Subject < ActiveRecord::Base
 
+	has_many :pages
+
+
 	# obtendo apenas ativos
 	scope :active, lambda {where(:active => true)}
 	# obtendo apenas os inativos
